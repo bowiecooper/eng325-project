@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hermit Crabs - Episode Series</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0F0F0F;
+            color: #E5E5E5;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .episode-header {
+            margin-bottom: 30px;
+        }
+
+        .episode-number {
+            color: #999;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .episode-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .stars {
+            color: #FFD700;
+            font-size: 18px;
+        }
+
+        .synopsis {
+            background-color: #1A1A1A;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .synopsis h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #FFF;
+        }
+
+        .synopsis-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #C0C0C0;
+        }
+
+        .comments-section {
+            background-color: #1A1A1A;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .comments-section h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #FFF;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 15px;
+            background-color: #0F0F0F;
+            border: 1px solid #333;
+            border-radius: 4px;
+            color: #E5E5E5;
+            font-family: inherit;
+            font-size: 14px;
+            resize: vertical;
+            margin-bottom: 15px;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #5A5A5A;
+        }
+
+        .submit-btn {
+            background-color: #5A5A5A;
+            color: #FFF;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #6A6A6A;
+        }
+
+        .comments-list {
+            margin-bottom: 30px;
+        }
+
+        .comment {
+            background-color: #0F0F0F;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            border-left: 3px solid #333;
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .comment-username {
+            font-weight: 600;
+            color: #FFF;
+            font-size: 14px;
+        }
+
+        .comment-date {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .comment-text {
+            color: #C0C0C0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .nav-btn {
+            flex: 1;
+            background-color: #1A1A1A;
+            color: #E5E5E5;
+            border: 1px solid #333;
+            padding: 15px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background-color: #2A2A2A;
+            border-color: #5A5A5A;
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .episode-content {
+            display: none;
+        }
+
+        .episode-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Episode 1 -->
+        <div class="episode-content active" data-episode="1">
+            <div class="episode-header">
+                <div class="episode-number">Episode 1 of 6</div>
+                <h1 class="episode-title">Pilot</h1>
+                <div class="rating">
+                    <span class="stars">★★★★☆</span>
+                    <span>Rating: 4 / 5</span>
+                </div>
+            </div>
+
+            <div class="synopsis">
+                <h3>Synopsis</h3>
+                <div class="synopsis-content">
+                    <p>The two-year old Bowie opens his eyes and sees his brother, David John Cooper III, for the very first time. This will be his first memory. We watch the two grow through their childhood together with the classic brotherly hallmarks: a shove and a fight occur in front of the giraffes at the zoo, laughs are had at Tigers baseball games, and every time they leave home they share a bed. </p>
+                    
+                    <p>This exciting pilot kicks off the adventures of Bowie & DJ. Watch the two brothers make their way through every challenge the mundane yet charming experience of growing up in Southeastern Michigan gives them!</p>
+                </div>
+            </div>
+
+            <div class="comments-section">
+                <h3>Comments</h3>
+
+                <!-- Existing Comments -->
+                <div class="comments-list">
+                    <div class="comment">
+                        <div class="comment-header">
+                            <span class="comment-username">the_best_mom168</span>
+                            <span class="comment-date">18 years ago</span>
+                        </div>
+                        <div class="comment-text">
+                           Man I am so excited for this show! I hear the character work is going to be phenomenal and I absolutely love the two leads!
+                        </div>
+                    </div>
+
+                   
+                </div>
+
+                <!-- New Comment Form -->
+                <textarea placeholder="Share your thoughts about this episode..."></textarea>
+                <button class="submit-btn">Submit Comment</button>
+            </div>
+        </div>
+
+        <!-- Episode 2 -->
+        <div class="episode-content" data-episode="2">
+            <div class="episode-header">
+                <div class="episode-number">Episode 2 of 6</div>
+                <h1 class="episode-title">The Scout Trip</h1>
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <span>Rating: 5 / 5</span>
+                </div>
+            </div>
+
+            <div class="synopsis">
+                <h3>Synopsis</h3>
+                <div class="synopsis-content">
+                    <p>In this episode we join Bowie and DJ in one of the most infamous moments of their childhoods. The yearly Boy Scouts camping trip, where the young Bowie follows his brother to experience and explore the wonders of nature. In this episode formative moments impact the two brothers, such as their experiences watching one of the more sadistic camp members roast crickets over the fire. Neither of the boys liked that one!</p>
+                    <p>We also begin to see a presence of prowess and ability shown in DJ that is lacking in Bowie. It seems, physically Bowie is quite a bit weaker and can’t manage to keep up. Hikes seem more difficult for Bowie, and he just never quite seems to win at basketball. </p>
+                </div>
+            </div>
+
+ <div class="comments-section">
+                <h3>Comments</h3>
+
+                <!-- Existing Comments -->
+                <div class="comments-list">
+                    <div class="comment">
+                        <div class="comment-header">
+                            <span class="comment-username">scout_troop_1016</span>
+                            <span class="comment-date">14 years ago</span>
+                        </div>
+                        <div class="comment-text">
+                           Not really sure how to feel about DJ randomly taking his brother on this trip. Not sure if we really wanted him there. 
+                        </div>
+                    </div>
+
+                  <div class="comment">
+                        <div class="comment-header">
+                            <span class="comment-username">concerned_citizen12</span>
+                            <span class="comment-date">14 years ago</span>
+                        </div>
+                        <div class="comment-text">
+                            Yooo what was up with that kid killing the crickets. Shit was not cool man!
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New Comment Form -->
+                <textarea placeholder="Share your thoughts about this episode..."></textarea>
+                <button class="submit-btn">Submit Comment</button>
+            </div>
+        </div>
+
+        <!-- Episode 3 -->
+        <div class="episode-content" data-episode="3">
+            <div class="episode-header">
+                <div class="episode-number">Episode 3 of 6</div>
+                <h1 class="episode-title">Sports</h1>
+                <div class="rating">
+                    <span class="stars">★★★★☆</span>
+                    <span>Rating: 4 / 5</span>
+                </div>
+            </div>
+
+            <div class="synopsis">
+                <h3>Synopsis</h3>
+                <div class="synopsis-content">
+                    <p>Here, we see the boys as they journey through the troubles of sports and piano and Saturday Chinese School and chess coaching and 
+                        school and everything else. This is the beginning of the comparisons. It seemed while DJ went off to baseball tournaments and won championships, 
+                        Bowie was pretty bad at Little League and struck out looking at the last game of his season. DJ and Grandpa were able to bond over baseball; Bowie was left to his own devices. </p>
+                    <p>DJ and Bowie are friends, they always have been. We see it feels hard for Bowie sometimes, though. How will this develop…? See this in the next episode: High School!</p>
+                </div>
+            </div>
+
+ <div class="comments-section">
+                <h3>Comments</h3>
+
+                <!-- Existing Comments -->
+                <div class="comments-list">
+                    <div class="comment">
+                        <div class="comment-header">
+                            <span class="comment-username">coach_bill23</span>
+                            <span class="comment-date">10 years ago</span>
+                        </div>
+                        <div class="comment-text">
+                           Glad to see Bowie quit the pansy sport baseball for something with real grit: swimming. Kids got spunk and is showing true potential.
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- New Comment Form -->
+                <textarea placeholder="Share your thoughts about this episode..."></textarea>
+                <button class="submit-btn">Submit Comment</button>
+            </div>
+        </div>
+
+        <!-- Episode 4 -->
+        <div class="episode-content" data-episode="4">
+            <div class="episode-header">
+                <div class="episode-number">Episode 4 of 6</div>
+                <h1 class="episode-title">"Oh you’re DJ’s brother!”</h1>
+                <div class="rating">
+                    <span class="stars">★★★★☆</span>
+                    <span>Rating: 4 / 5</span>
+                </div>
+            </div>
+
+            <div class="synopsis">
+                <h3>Synopsis</h3>
+                <div class="synopsis-content">
+                    <p> 
+“Oh you’re DJ’s brother !” is the common phrase of this era. A lot of the time Bowie leans into this, but it can still feel diminishing. However, here is where Bowie took steps to leave his brother’s shadow. He developed his own community of friends, instead of relying on asking to hang out with DJ’s cool friends. We meet lasting best friends, a handful of girlfriends and some enemies. But sometimes, Bowie can’t escape the shadow. It seems as though every experience Bowie has isn’t novel and is simply history repeating itself.
+</p>
+                </div>
+            </div>
+
+ <div class="comments-section">
+                <h3>Comments</h3>
+
+                <!-- Existing Comments -->
+                <div class="comments-list">
+                    <div class="comment">
+                        <div class="comment-header">
+                            <span class="comment-username">teachers_union113</span>
+                            <span class="comment-date">5 years ago</span>
+                        </div>
+                        <div class="comment-text">
+                            We love the Cooper brothers! They got great AP scores and help boost our numbers. Sux that DJ got National Merit Scholar and Bowie only got commended: lol! 
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- New Comment Form -->
+                <textarea placeholder="Share your thoughts about this episode..."></textarea>
+                <button class="submit-btn">Submit Comment</button>
+            </div>
+
+        </div>
+
+        <!-- Episode 5 -->
+        <div class="episode-content" data-episode="5">
+            <div class="episode-header">
+                <div class="episode-number">Episode 5 of 6</div>
+                <h1 class="episode-title">Coming of Age</h1>
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <span>Rating: 5 / 5</span>
+                </div>
+            </div>
+
+            <div class="synopsis">
+                <h3>Synopsis</h3>
+                <div class="synopsis-content">
+                    <p>College was a different beast for Bowie. Everything felt new, and yet he could still feel the mark DJ left. The first semester he was there, DJ was finishing up graduating. We see them take a class together: HISTART 271: Bowie is able to beat DJ in every single essay which feels really good. But still, the semester is fun. DJ seems to crash at Bowie’s dorm every other weekend, and going to the same school as your brother for the first and last time since kindergarten is exciting. </p>
+                    <p>Bowie begins to see DJ’s weaknesses, and begins to acknowledge the strengths both brothers bring. They take a trip together to the Philippines in the series finale, debuting next week!</p>
+                </div>
+            </div>
+
+ <div class="comments-section">
+                <h3>Comments</h3>
+
+                <!-- Existing Comments -->
+                <div class="comments-list">
+                    <div class="comment">
+                        <div class="comment-header">
+                            <span class="comment-username">avid_viewer4912</span>
+                            <span class="comment-date">2 years ago</span>
+                        </div>
+                        <div class="comment-text">
+                           Man this show is awesome! Absolutely love this college arc. Go Blue!
+                        </div>
+                    </div>
+
+                  <div class="comment">
+                        <div class="comment-header">
+                            <span class="comment-username">profhowardlay</span>
+                            <span class="comment-date">2 years ago</span>
+                        </div>
+                        <div class="comment-text">
+                           Really enjoyed these two in my class. I know they absolutely loved learning about Courbet and Cezanne and how their art impacted French culture. 1800's France is fascinating!
+                        </div>
+                    </div>
+
+                  <div class="comment">
+                        <div class="comment-header">
+                            <span class="comment-username">letterboxd_guy6767</span>
+                            <span class="comment-date">2 years ago</span>
+                        </div>
+                        <div class="comment-text">
+                           ABSOLUTE CINEMA!!
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- New Comment Form -->
+                <textarea placeholder="Share your thoughts about this episode..."></textarea>
+                <button class="submit-btn">Submit Comment</button>
+            </div>
+        </div>
+
+        <!-- Episode 6 -->
+        <div class="episode-content" data-episode="6">
+            <div class="episode-header">
+                <div class="episode-number">Episode 6 of 6</div>
+                <h1 class="episode-title">We Manage to Live</h1>
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <span>Rating: 5 / 5</span>
+                </div>
+            </div>
+
+            <div class="synopsis">
+                <h3>Synopsis</h3>
+                <div class="synopsis-content">
+                    <p>In classic fashion, the two boys travel to Southeast Asia in search of cheap beer and good times. It’s here that Bowie is able to finally confront DJ about his emotions. The feeling of never being out of the shadow. DJ responds simply, “you’re your own person.” </p>
+                    <p>Find out how Bowie reacts in this series finale! Spoiler alert: We see a moment of acceptance! It seems a path has been paved for Bowie, but he is still able to create his own trails. Together, the two work in junction to make a mark on anywhere they go. People will hear the names Bowie and DJ for sometime. </p>
+                </div>
+            </div>
+
+ <div class="comments-section">
+                <h3>Comments</h3>
+
+                <!-- Existing Comments -->
+                <div class="comments-list">
+                    <div class="comment">
+                        <div class="comment-header">
+                            <span class="comment-username">thesixthgradechemistryteacher</span>
+                            <span class="comment-date">5 years ago</span>
+                        </div>
+                        <div class="comment-text">
+                           This show reminds me of Gattaca
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="comment-header">
+                            <span class="comment-username">tisch_film_student</span>
+                            <span class="comment-date">5 years ago</span>
+                        </div>
+                        <div class="comment-text">
+                           Lowkey dropped the ball on the ending... Spiritual/emotional revelation in Asia is a tired trope!
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="comment-header">
+                            <span class="comment-username">the_best_mom168</span>
+                            <span class="comment-date">5 years ago</span>
+                        </div>
+                        <div class="comment-text">
+                           Well I absolutely loved it! Emmy winner for sure. 
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- New Comment Form -->
+                <textarea placeholder="Share your thoughts about this episode..."></textarea>
+                <button class="submit-btn">Submit Comment</button>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button class="nav-btn" id="prevBtn" onclick="changeEpisode(-1)">← Previous Episode</button>
+            <button class="nav-btn" id="nextBtn" onclick="changeEpisode(1)">Next Episode →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentEpisode = 1;
+        const totalEpisodes = 6;
+
+        function changeEpisode(direction) {
+            const newEpisode = currentEpisode + direction;
+
+            if (newEpisode < 1 || newEpisode > totalEpisodes) {
+                return;
+            }
+
+            // Hide current episode
+            document.querySelector(`.episode-content[data-episode="${currentEpisode}"]`).classList.remove('active');
+
+            // Show new episode
+            currentEpisode = newEpisode;
+            document.querySelector(`.episode-content[data-episode="${currentEpisode}"]`).classList.add('active');
+
+            // Update button states
+            updateButtons();
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function updateButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            prevBtn.disabled = currentEpisode === 1;
+            nextBtn.disabled = currentEpisode === totalEpisodes;
+        }
+
+        // Initialize buttons
+        updateButtons();
+
+        // Handle comment submission (placeholder functionality)
+        document.querySelectorAll('.submit-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const textarea = this.previousElementSibling;
+                if (textarea.value.trim()) {
+                    alert('Comment submitted! (No backend connected)');
+                    textarea.value = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
